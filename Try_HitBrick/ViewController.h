@@ -9,6 +9,14 @@
 #import <UIKit/UIKit.h>
 #import <SpriteKit/SpriteKit.h>
 
-@interface ViewController : UIViewController
+@protocol gameDelegate <NSObject>
+- (void)showWinDialog;
+- (void)showLoseDialog:(int)score;
+- (void)goToMenu;
+- (void)goToNextLevel;
+- (void)restart;
+@end
+
+@interface ViewController : UIViewController<gameDelegate>
 
 @end
