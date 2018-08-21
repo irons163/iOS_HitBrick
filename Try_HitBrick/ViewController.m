@@ -130,20 +130,6 @@ int level;
     }
 }
 
-//-(void)showLoseDialog:(int)score{
-//    GameOverViewController* gameOverViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"GameOverViewController"];
-//    gameOverViewController.gameDelegate = self;
-//    [gameOverViewController setScore:score];
-//    
-//    self.providesPresentationContextTransitionStyle = YES;
-//    self.definesPresentationContext = YES;
-//    [gameOverViewController setModalPresentationStyle:UIModalPresentationOverCurrentContext];
-//    
-//    gameOverViewController.view.backgroundColor = [UIColor colorWithRed:255 green:255 blue:255 alpha:0.5];
-//    
-//    [self.navigationController presentViewController:gameOverViewController animated:YES completion:nil];
-//}
-
 -(void)showLoseDialog:(int)score{
     gameOverViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"GameOverViewController"];
     gameOverViewController.gameDelegate = self;
@@ -227,12 +213,6 @@ int level;
     } else {
         return UIInterfaceOrientationMaskAll;
     }
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Release any cached data, images, etc that aren't in use.
 }
 
 @end

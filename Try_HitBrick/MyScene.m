@@ -14,6 +14,7 @@
 #import "ToolUtil.h"
 #import "BitmapUtil.h"
 #import "GameOverViewController.h"
+#import "SoundManager.h"
 
 const int N = 4;
 static NSString* ballCategoryName = @"ball";
@@ -190,16 +191,12 @@ static bool gameFlag = true;
         [self addChild:paddle];
         
         paddle.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:paddle.frame.size];
-//        paddle.physicsBody.restitution = 0.1f;
-//        paddle.physicsBody.friction = 0.4f;
         paddle.physicsBody.restitution = 1.0f;
         paddle.physicsBody.friction = 0.0f;
-        // make physicsBody static
         paddle.physicsBody.dynamic = NO;
         
         [self resetBall];
-        
-        //        CGRect bottomRect = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, 1);
+    
         CGRect bottomRect = CGRectMake(self.frame.origin.x, self.frame.origin.y - ball.size.height, self.frame.size.width, 1);
         SKNode* bottom = [SKNode node];
         bottom.physicsBody = [SKPhysicsBody bodyWithEdgeLoopFromRect:bottomRect];
@@ -297,10 +294,19 @@ static bool gameFlag = true;
             BallUtil* ball = firstBody.node;
             if(ballUtils.count<=1 && [ballUtils containsObject:ball]){
 //                gameFlag = false;
-                [self gameSuccess];
+//                [self gameSuccess];
+                [self setBallLife:ballLife-1];
+                
+                [ballUtils removeObject:ball];
+                [ball removeFromParent];
+                
+                [self resetBall];
+                [self setReadyAlertBox:true];
             }else{
                 [ballUtils removeObject:ball];
                 [ball removeFromParent];
+                
+                [self resetBall];
             }
             
              
@@ -841,6 +847,9 @@ static bool gameFlag = true;
     if(count==CHANGE_MUSIC_TIME && !waitGameSuccessProcessing){
 //        AudioUtil.pauseMusic();
 //        AudioUtil.playMusic(R.raw.time_count_music);
+        
+        [[SoundManager sharedManager] stopMusic];
+        [[SoundManager sharedManager] playMusic:@"time_count_music"];
     }
     
     if (count <= 0 && isFirstDoGameFinish) {
@@ -867,6 +876,8 @@ static bool gameFlag = true;
 -(void) gameSuccess {
 //    AudioUtil.pauseMusic();
 //    AudioUtil.playMusic(R.raw.v2);
+    [[SoundManager sharedManager] stopMusic];
+    [[SoundManager sharedManager] playMusic:@"v2"];
 //    isGameFinish = true;
     gameFlag = false;
     waitGameSuccessProcessing = true;
@@ -883,6 +894,8 @@ static bool gameFlag = true;
 -(void) gameOver {
 //    AudioUtil.pauseMusic();
 //    AudioUtil.playMusic(R.raw.gameover_music);
+    [[SoundManager sharedManager] stopMusic];
+    [[SoundManager sharedManager] playMusic:@"gameover_music"];
 //    isGameFinish = true;
     gameFlag = false;
 //    handler.sendEmptyMessage(1);
@@ -925,12 +938,10 @@ static bool gameFlag = true;
             [ball removeFromParent];
             
             if (ballUtils.count == 0) {
-//                setBallLife(ballLife - 1);
                 [self setBallLife:ballLife-1];
 //                resetBall();
 //                [self reset];
                 if (ballLife < 0) {
-//                    gameOver();
                     [self gameOver];
                 }else{
                     [self resetBall];
@@ -940,11 +951,9 @@ static bool gameFlag = true;
             }
         }
         if (iNumBricks == 0) {
-//            gameSuccess();
             [self gameSuccess];
             return;
         } else if (ballLife < 0) {
-//            gameOver();
             [self gameOver];
             return;
         }
@@ -1143,6 +1152,9 @@ int lastTimeCount;
         NSLog(@"ImageCollisionV2:%d, %d, %d, %d", (int) (scene->widthScreen / 3), (int) (scene->heightScreen - THICK_OF_STICK), (int) (scene->widthScreen * 2 / 3), (int) (scene->heightScreen - 1));
         
 //        AudioUtil.playMusic(R.raw.game_main_music);
+//    [[SoundManager sharedManager] stopMusic];
+    [[SoundManager sharedManager] playMusic:@"game_main_music"];
+    
         scene->ballViewConfig = [BallViewConfig sharedInstance];
         scene->ballViewConfig.waitGameSuccessProcessing = false;
     
