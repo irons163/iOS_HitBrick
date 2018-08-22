@@ -17,6 +17,14 @@
 		8A13680C212C0F9C00A8FAFA /* tool03.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A136802212C0F9B00A8FAFA /* tool03.png */; };
 		8A13680D212C0F9C00A8FAFA /* tool10.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A136803212C0F9C00A8FAFA /* tool10.png */; };
 		8A13680E212C0F9C00A8FAFA /* tool05.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A136804212C0F9C00A8FAFA /* tool05.png */; };
+		8A136818212C170C00A8FAFA /* bomb_music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8A136810212C170B00A8FAFA /* bomb_music.mp3 */; };
+		8A136819212C170C00A8FAFA /* brick_hit_music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8A136811212C170B00A8FAFA /* brick_hit_music.mp3 */; };
+		8A13681B212C170C00A8FAFA /* game_map_music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8A136813212C170B00A8FAFA /* game_map_music.mp3 */; };
+		8A13681C212C170C00A8FAFA /* gameover_music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8A136814212C170B00A8FAFA /* gameover_music.mp3 */; };
+		8A13681D212C170C00A8FAFA /* mainmenu_bg_music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8A136815212C170B00A8FAFA /* mainmenu_bg_music.mp3 */; };
+		8A13681E212C170C00A8FAFA /* time_count_music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8A136816212C170B00A8FAFA /* time_count_music.mp3 */; };
+		8A13681F212C170C00A8FAFA /* v2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8A136817212C170B00A8FAFA /* v2.mp3 */; };
+		8A136823212CFED000A8FAFA /* game_main_music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8A136822212CFECF00A8FAFA /* game_main_music.mp3 */; };
 		8A560F6C212AC82A00227E53 /* SoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A560F6B212AC82A00227E53 /* SoundManager.m */; };
 		8A560F7B212BA97900227E53 /* dot.png in Resources */ = {isa = PBXBuildFile; fileRef = B5A1A5341BE2EB4200F1C9AC /* dot.png */; };
 		8A560F7C212BA97900227E53 /* s0.png in Resources */ = {isa = PBXBuildFile; fileRef = B5A1A5351BE2EB4200F1C9AC /* s0.png */; };
@@ -139,6 +147,14 @@
 		8A136802212C0F9B00A8FAFA /* tool03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tool03.png; sourceTree = "<group>"; };
 		8A136803212C0F9C00A8FAFA /* tool10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tool10.png; sourceTree = "<group>"; };
 		8A136804212C0F9C00A8FAFA /* tool05.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tool05.png; sourceTree = "<group>"; };
+		8A136810212C170B00A8FAFA /* bomb_music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bomb_music.mp3; sourceTree = "<group>"; };
+		8A136811212C170B00A8FAFA /* brick_hit_music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = brick_hit_music.mp3; sourceTree = "<group>"; };
+		8A136813212C170B00A8FAFA /* game_map_music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = game_map_music.mp3; sourceTree = "<group>"; };
+		8A136814212C170B00A8FAFA /* gameover_music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gameover_music.mp3; sourceTree = "<group>"; };
+		8A136815212C170B00A8FAFA /* mainmenu_bg_music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = mainmenu_bg_music.mp3; sourceTree = "<group>"; };
+		8A136816212C170B00A8FAFA /* time_count_music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = time_count_music.mp3; sourceTree = "<group>"; };
+		8A136817212C170B00A8FAFA /* v2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = v2.mp3; sourceTree = "<group>"; };
+		8A136822212CFECF00A8FAFA /* game_main_music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = game_main_music.mp3; sourceTree = "<group>"; };
 		8A560F6A212AC82A00227E53 /* SoundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundManager.h; sourceTree = "<group>"; };
 		8A560F6B212AC82A00227E53 /* SoundManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundManager.m; sourceTree = "<group>"; };
 		B50AD1021B9AE914003D6BF1 /* brick01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brick01.png; sourceTree = "<group>"; };
@@ -291,6 +307,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8A13680F212C170B00A8FAFA /* music */ = {
+			isa = PBXGroup;
+			children = (
+				8A136810212C170B00A8FAFA /* bomb_music.mp3 */,
+				8A136811212C170B00A8FAFA /* brick_hit_music.mp3 */,
+				8A136822212CFECF00A8FAFA /* game_main_music.mp3 */,
+				8A136813212C170B00A8FAFA /* game_map_music.mp3 */,
+				8A136814212C170B00A8FAFA /* gameover_music.mp3 */,
+				8A136815212C170B00A8FAFA /* mainmenu_bg_music.mp3 */,
+				8A136816212C170B00A8FAFA /* time_count_music.mp3 */,
+				8A136817212C170B00A8FAFA /* v2.mp3 */,
+			);
+			path = music;
+			sourceTree = "<group>";
+		};
 		8A560F69212AC81A00227E53 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
@@ -414,6 +445,7 @@
 		B592A8D61AFA1C290014FC4C /* Try_HitBrick */ = {
 			isa = PBXGroup;
 			children = (
+				8A13680F212C170B00A8FAFA /* music */,
 				8A560F69212AC81A00227E53 /* Utility */,
 				B57721851B4B8ED200ADC9BB /* Images */,
 				B592A8DF1AFA1C290014FC4C /* AppDelegate.h */,
@@ -575,6 +607,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A13681B212C170C00A8FAFA /* game_map_music.mp3 in Resources */,
 				8A560F9F212BA97900227E53 /* ball~ipad.png in Resources */,
 				8A560FB1212BA97900227E53 /* menu_map.jpg in Resources */,
 				8A560F83212BA97900227E53 /* s7.png in Resources */,
@@ -586,6 +619,7 @@
 				8A560F80212BA97900227E53 /* s4.png in Resources */,
 				8A560F9E212BA97900227E53 /* ball@2x~ipad.png in Resources */,
 				8A560FC0212BA97900227E53 /* play_board_bg.png in Resources */,
+				8A13681D212C170C00A8FAFA /* mainmenu_bg_music.mp3 in Resources */,
 				8A560F84212BA97900227E53 /* s8.png in Resources */,
 				B592A8DB1AFA1C290014FC4C /* InfoPlist.strings in Resources */,
 				8A560FB6212BA97900227E53 /* game_restart_btn02.png in Resources */,
@@ -596,6 +630,7 @@
 				8A560F8D212BA97900227E53 /* brick06.png in Resources */,
 				8A560F85212BA97900227E53 /* s9.png in Resources */,
 				8A136809212C0F9C00A8FAFA /* tool09.png in Resources */,
+				8A136819212C170C00A8FAFA /* brick_hit_music.mp3 in Resources */,
 				8A560FB2212BA97900227E53 /* menu.jpg in Resources */,
 				8A560F9B212BA97900227E53 /* tool13.png in Resources */,
 				8A560FB4212BA97900227E53 /* x.png in Resources */,
@@ -618,6 +653,7 @@
 				B592A8EC1AFA1C290014FC4C /* Spaceship.png in Resources */,
 				8A560F7F212BA97900227E53 /* s3.png in Resources */,
 				8A560FBF212BA97900227E53 /* rank_top.png in Resources */,
+				8A13681E212C170C00A8FAFA /* time_count_music.mp3 in Resources */,
 				8A560F88212BA97900227E53 /* brick02.png in Resources */,
 				8A560FA9212BA97900227E53 /* paddle.png in Resources */,
 				8A560FA7212BA97900227E53 /* block@2x~ipad.png in Resources */,
@@ -631,6 +667,7 @@
 				8A560F86212BA97900227E53 /* second_s.png in Resources */,
 				8A560FC1212BA97900227E53 /* leader_board_btn.png in Resources */,
 				8A560FBE212BA97900227E53 /* rank_bot.png in Resources */,
+				8A136818212C170C00A8FAFA /* bomb_music.mp3 in Resources */,
 				8A560F9A212BA97900227E53 /* tool12.png in Resources */,
 				8A13680D212C0F9C00A8FAFA /* tool10.png in Resources */,
 				8A560F9D212BA97900227E53 /* ball.png in Resources */,
@@ -641,6 +678,8 @@
 				8A560F99212BA97900227E53 /* tool11.png in Resources */,
 				8A560FAD212BA97900227E53 /* bg@2x~iphone.png in Resources */,
 				B592A8E41AFA1C290014FC4C /* Main.storyboard in Resources */,
+				8A136823212CFED000A8FAFA /* game_main_music.mp3 in Resources */,
+				8A13681C212C170C00A8FAFA /* gameover_music.mp3 in Resources */,
 				8A560FBB212BA97900227E53 /* win.png in Resources */,
 				8A560F81212BA97900227E53 /* s5.png in Resources */,
 				8A136808212C0F9C00A8FAFA /* tool07.png in Resources */,
@@ -649,6 +688,7 @@
 				8A13680A212C0F9C00A8FAFA /* tool08.png in Resources */,
 				8A560FB8212BA97900227E53 /* submit_score_btn.png in Resources */,
 				8A560F87212BA97900227E53 /* brick01.png in Resources */,
+				8A13681F212C170C00A8FAFA /* v2.mp3 in Resources */,
 				8A560F8B212BA97900227E53 /* brick04.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

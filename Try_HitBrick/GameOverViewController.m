@@ -31,7 +31,7 @@ typedef void (^okBlock)();
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
 //    self.gameOverTitleLabel.text = NSLocalizedString(@"Rank", "");
     self.gameScoreLabel.text = [NSString stringWithFormat:@"%d", gameScore];
     [self.gameScoreLabel sizeToFit];
@@ -46,16 +46,6 @@ typedef void (^okBlock)();
 -(void)setScore:(int)score{
     gameScore = score;
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 - (IBAction)goToMenu:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];

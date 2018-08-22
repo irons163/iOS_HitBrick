@@ -208,15 +208,9 @@ enum ToolType {
 -(void) doTool:(NSMutableArray*) ballUtils ball:(BallUtil*) ball showToolEffectTime:(NSMutableArray*)showToolEffectTime {
     switch (whichToolType) {
 		case BallSpeedUp:
-			// ball.setSpeedX(ball.getSpeedX() * 2);
-			// ball.setSpeedY(ball.getSpeedY() * 2);
 			self.ball = ball;
-//			[ballView setBallSpeed(ballView.getBallSpeedX() * 2,
-//                                  ballView.getBallSpeedY() * 2)];
             [ball setSpeedX:[ball getSpeedX]*2];
             [ball setSpeedY:[ball getSpeedY]*2];
-            
-//            [ball.physicsBody applyForce:CGVectorMake([ball getSpeedX]*2, [ball getSpeedY]*2)];
             [ball.physicsBody setVelocity:CGVectorMake(ball.physicsBody.velocity.dx*2, ball.physicsBody.velocity.dy*2)];
             
             timerThread = [TimerThread initWithTime:10];
@@ -224,18 +218,10 @@ enum ToolType {
 			[showToolEffectTime addObject:self];
 			break;
 		case BallSpeedDown:
-			// ball.setSpeedX(ball.getSpeedX() / 2);
-			// ball.setSpeedY(ball.getSpeedY() / 2);
 			self.ball = ball;
-//			ballView.setBallSpeed(ballView.getBallSpeedX() / 2,
-//                                  ballView.getBallSpeedY() / 2);
             [ball setSpeedX:[ball getSpeedX]/2];
             [ball setSpeedY:[ball getSpeedY]/2];
-            
-//            [ball.physicsBody applyForce:CGVectorMake([ball getSpeedX]/2, [ball getSpeedY]/2)];
             [ball.physicsBody setVelocity:CGVectorMake(ball.physicsBody.velocity.dx/2, ball.physicsBody.velocity.dy/2)];
-            
-//			timerThread = new TimerThread(10);
             timerThread = [TimerThread initWithTime:10];
             [timerThread start];
             [showToolEffectTime addObject:self];
@@ -255,44 +241,25 @@ enum ToolType {
             [showToolEffectTime addObject:self];
 			break;
 		case BallCountUpToThree:
-			// ballView.setBallCount(3);
 			for (int i = ballUtils.count; i < 3; i++) {
-//				float angle = ball.getAngle();
-//                
-////				Random random = new Random();
-//				int randomAngle = arc4random_uniform(360);
-//				if (randomAngle < 20 || randomAngle > 340
-//                    || (randomAngle > 160 && randomAngle < 200)) {
-//					randomAngle = 90;
-//				}
-//				if (randomAngle > angle - 5 && randomAngle < angle + 5) {
-//					randomAngle += 10;
-//				}
-//                
-//				float newSpeedX = ballView.getSpeedX((float) randomAngle);
-//				float newSpeedY = ballView.getSpeedY((float) randomAngle);
-                
                 BallUtil* newBall = [BallUtil initBallUtil:0 speedX:0 speedY:0 imageX:0 imageY:0 fAngle:0 RADIUS:10];
 				[ballUtils addObject:newBall];
                 
                 newBall.name = ball.name;
-//                newBall.position = CGPointMake(self.frame.size.width/3, self.frame.size.height/3);
                 newBall.position = ball.position;
-                //        ball.size = CGSizeMake(50, 50);
                 [ballView addChild:newBall];
                 
-                // 2
                 newBall.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:newBall.frame.size.width/2];
-                // 3
                 newBall.physicsBody.friction = 0.0f;
-                // 4
                 newBall.physicsBody.restitution = 1.0f;
-                // 5
                 newBall.physicsBody.linearDamping = 0.0f;
-                // 6
                 newBall.physicsBody.allowsRotation = NO;
                 
-                [newBall.physicsBody applyImpulse:CGVectorMake(10.0f, -10.0f)];
+                int vx = arc4random_uniform(10);
+                if (arc4random_uniform(2) == 0)
+                    vx *= -1;
+                    
+                [newBall.physicsBody applyImpulse:CGVectorMake(vx, -10.0f)];
                 newBall.physicsBody.categoryBitMask = ball.physicsBody.categoryBitMask;
                 newBall.physicsBody.contactTestBitMask = ball.physicsBody.contactTestBitMask;
 			}
@@ -302,16 +269,11 @@ enum ToolType {
 			break;
 		case BallReset:
             [ballView resetBall];
-//            self.ball = ball;
-//            int ballLevel = ([ball getBallLevel]>1) ? -1:([ball getBallLevel]+1);
-//            [ball setBallLevel:ballLevel];
 			break;
 		case StickLongMax:
 			self.ball = ball;
 			saveStickLong = [ballView getStickLong ];
             [ballView setStickLong:ballView.size.width];
-            
-			// time.start();
             
             timerThread = [TimerThread initWithTime:10];
             [timerThread start];
@@ -319,7 +281,6 @@ enum ToolType {
 			break;
 		case BallRadiusUp:
 			self.ball = ball;
-//			ball.setRadius((int) (ball.getRadius() * 1.5));
             ball.xScale = 1.5;
             ball.yScale = 1.5;
             timerThread = [TimerThread initWithTime:10];
@@ -328,7 +289,6 @@ enum ToolType {
 			break;
 		case BallRadiusDown:
 			self.ball = ball;
-//			ball.setRadius((int) (ball.getRadius() * 0.5));
             ball.xScale = 0.5;
             ball.yScale = 0.5;
             timerThread = [TimerThread initWithTime:10];
@@ -341,8 +301,6 @@ enum ToolType {
 			break;
         case BallLevelUpTwice:{
 			self.ball = ball;
-//            NSString *a = nil;
-//            NSString* a; = 1<2 ? 0:1;
             int ballLevel = ([ball getBallLevel]>0) ? -1:([ball getBallLevel]+2);
 			[ball setBallLevel:ballLevel];
 			break;
@@ -357,19 +315,13 @@ enum ToolType {
     if (self.ball != nil) {
         switch (whichToolType) {
 			case BallSpeedUp:
-//				ball.setSpeedX(ball.getSpeedX() / 2);
-//				ball.setSpeedY(ball.getSpeedY() / 2);
                 [self.ball setSpeedX:[self.ball getSpeedX]/2];
                 [self.ball setSpeedY:[self.ball getSpeedY]/2];
-                
-//                [self.ball.physicsBody applyForce:CGVectorMake([self.ball getSpeedX]/2, [self.ball getSpeedY]/2)];
                 [self.ball.physicsBody setVelocity:CGVectorMake(self.ball.physicsBody.velocity.dx/2, self.ball.physicsBody.velocity.dy/2)];
                 break;
 			case BallSpeedDown:
                 [self.ball setSpeedX:[self.ball getSpeedX]*2];
                 [self.ball setSpeedY:[self.ball getSpeedY]*2];
-                
-//                [self.ball.physicsBody applyForce:CGVectorMake([self.ball getSpeedX]*2, [self.ball getSpeedY]*2)];
                 [self.ball.physicsBody setVelocity:CGVectorMake(self.ball.physicsBody.velocity.dx*2, self.ball.physicsBody.velocity.dy*2)];
                 break;
 			case StickLongUp:
@@ -386,12 +338,10 @@ enum ToolType {
 				}
 				break;
 			case BallRadiusUp:
-//				ball.setRadius((int) (ball.getRadius() * 0.67));
                 self.ball.xScale = 1;
                 self.ball.yScale = 1;
 				break;
 			case BallRadiusDown:
-//				ball.setRadius((int) (ball.getRadius() * 2));
                 self.ball.xScale = 1;
                 self.ball.yScale = 1;
 				break;
@@ -400,17 +350,11 @@ enum ToolType {
 }
 
 -(CGRect) getToolRect {
-//    return toolRect;
     return toolRect;
 }
 
-//-(bool) isStartDownTool{
-//    return self.isStartDownTool;
-//}
-
 -(void) moveDownToolObj{
     if(whichToolType != BlackHole){
-//        toolRect.offset(0, TOOL_DOWN_SPEED);
         self.position = CGPointMake(self.position.x, self.position.y - 2);
     }
 }
@@ -423,50 +367,4 @@ enum ToolType {
     return toolBitmap;
 }
 
-//int toolEffectTwinkingAlpha = 255;
-//int toolEffectFinishAlpha = 255;
-//
-//-(int) getFinishAlpha{
-//    return toolEffectFinishAlpha;
-//}
-//
-//-(void) setFinishAlpha:(int) toolEffectFinishAlpha{
-//    this.toolEffectFinishAlpha = toolEffectFinishAlpha;
-//}
-//
-//-(int) getTwinklingAlpha{
-//    return toolEffectTwinkingAlpha;
-//}
-//
-//-(void) setTwinklingAlpha:(int) toolEffectTwinkingAlpha{
-//    this.toolEffectTwinkingAlpha = toolEffectTwinkingAlpha;
-//}
-//
-//const int Init_Max_Stick_Long_Count = 20;
-//int count = Init_Max_Stick_Long_Count;
-//
-////Thread time = new Thread(new Runnable() {
-////    public void run() {
-////        boolean flag = true;
-////        while (ballView.isBallRun() && flag) {
-////            while (ballView.isGameRun()) {
-////                try {
-////                    Thread.sleep(1000);
-////                } catch (InterruptedException e) {
-////                    e.printStackTrace();
-////                }
-////                if (!flag) {
-////                    break;
-////                }
-////                if (ballView.isGameRun()) {
-////                    count--;
-////                    flag = false;
-////                    ((MainActivity) ballView.context).handler
-////                    .sendEmptyMessage(6);
-////                }
-////            }
-////        }
-////    }
-////});
-//
 @end
